@@ -9,7 +9,7 @@ import SongList from './pages/SongList';
 
 function App() {
 
-  const [songs, setSongs] = useState("")
+  const [songs, setSongs] = useState([])
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_URL}/songs`)

@@ -1,0 +1,25 @@
+.SongList {
+    display: flex;
+    justify-content: center;
+    margin-top: 3vh;
+}
+
+.SongList .box {
+
+    border: 1px solid #333;
+    background-color: rgb(245, 227, 222);
+    padding: 1rem;
+    margin: 2rem;
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.SongList h1 {
+    display: flex;
+  
+    align-self: flex-start;
+}
+

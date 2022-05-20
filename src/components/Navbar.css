@@ -1,5 +1,5 @@
 .Navbar {
-    background-color: rgb(176, 204, 240);
+    background-color: rgb(239, 239, 239);
     padding: 1rem;
 }
 
@@ -12,10 +12,34 @@
     border-radius: 0.5rem;
 }
 
-.Navbar a:hover {
+/* .Navbar a:hover {
     background-color: maroon;
-}
+} */
 
 .Navbar a:active {
-    background-color: fuchsia;
+    background-color: rgba(255, 255, 255, 0.7);
 }
+
+.underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #0087ca;
+}
+
+.underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(233, 191, 179);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+.underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
