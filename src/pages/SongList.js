@@ -1,10 +1,18 @@
 import axios from "axios";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./SongList.css"
 
 function SongList(props){
 
-    console.log(props.songs)
+    const deleteSong = (songId) => {
+
+        axios.delete(`${process.env.REACT_APP_API_URL}/songs/${songId}`)
+            .then(response => {
+                props.callbackSongList();
+            })
+            .catch(e => console.log("error deleting song...", e));
+    }
+
     const renderSongs = (list) => {
         const result = list.map( (element) => {
             
@@ -12,8 +20,8 @@ function SongList(props){
                 <div key={element._id} className="song-summary box">
                     <p>Learn to play <u>{element.title}</u></p>
                     <p>by {element.artist}</p>
-                    <NavLink to={`/songs/${element._id}/edit`}>Edit</NavLink>
-                    <NavLink to="/songs">Delete</NavLink>
+                    <Link to={`/songs/${element._id}/edit`}>Edit</Link>
+                    <Link to="/songs" onClick={() => {deleteSong(element._id)}}>Delete</Link>
                 </div>
             )
         });
