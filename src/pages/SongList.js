@@ -12,8 +12,8 @@ function SongList(props){
                 <div key={element._id} className="song-summary box">
                     <p>Learn to play <u>{element.title}</u></p>
                     <p>by {element.artist}</p>
-                    <NavLink to="/">More details</NavLink>
                     <NavLink to={`/songs/${element._id}/edit`}>Edit</NavLink>
+                    <NavLink to="/songs">Delete</NavLink>
                 </div>
             )
         });
