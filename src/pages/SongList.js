@@ -1,5 +1,5 @@
 import axios from "axios";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./SongList.css"
 
 function SongList(props){
@@ -30,6 +30,7 @@ function SongList(props){
 
         <section className="SongList split right">
             <h1>... or add a song you'd like to play</h1>
+            <Link to="/songs/create"><button>Add Song</button></Link>
 
         </section>
 

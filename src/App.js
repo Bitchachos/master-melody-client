@@ -13,12 +13,16 @@ function App() {
   const [songs, setSongs] = useState([])
 
   useEffect(() => {
+    fetchSongs()
+  }, [])
+
+  const fetchSongs = () => {
     axios.get(`${process.env.REACT_APP_API_URL}/songs`)
       .then((response) => {
         setSongs(response.data)
       })
       .catch(e => console.log("error getting songs from API...", e))
-  }, [])
+  }
 
   return (
     <div className="App">
@@ -27,8 +31,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Homepage />}/>
-        <Route path="/songs" element={<SongList songs={songs} />} />
-        <Route path="/songs/create" element={<AddSong songs={songs} />} />
+        <Route path="/songs" element={<SongList songs={songs} callbackSongList={fetchSongs}/>} />
+        <Route path="/songs/create" element={<AddSong songs={songs} callbackSongList={fetchSongs}/>} />
       </Routes>
     </div>
   );
