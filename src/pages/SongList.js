@@ -21,11 +21,16 @@ function SongList(props){
     }
 
     return (
-        <div className="SongList">
-        <h1>Pick a song you'd like to learn:</h1>
+        <div>
 
-        <section>
-         { props.songs === null ? <p>Loading...</p> : renderSongs(props.songs) }
+        <section className="SongList split left">
+            <h1>Pick a song you'd like to learn:</h1> <br />
+            { props.songs === null ? <p>Loading...</p> : renderSongs(props.songs) }
+        </section>
+
+        <section className="SongList split right">
+            <h1>... or add a song you'd like to play</h1>
+
         </section>
 
         </div>

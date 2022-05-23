@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
+import AddSong from './components/AddSong';
 import Homepage from './pages/Homepage';
 import SongList from './pages/SongList';
 
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}/>
         <Route path="/songs" element={<SongList songs={songs} />} />
+        <Route path="/songs/create" element={<AddSong songs={songs} />} />
       </Routes>
     </div>
   );
