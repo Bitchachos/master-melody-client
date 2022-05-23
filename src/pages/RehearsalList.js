@@ -31,7 +31,7 @@ console.log(props.rehearsals)
     return (
         <div>
             <section className="RehearsalList SongList">
-            <button>Create your rehearsal</button>
+            <Link to="/rehearsals/create"><button>Create your rehearsal</button></Link>
             <h1>Choose your practice room:</h1> <br />
             { props.rehearsals === null ? <p>Loading...</p> : renderRehearsals(props.rehearsals) }
             </section>
