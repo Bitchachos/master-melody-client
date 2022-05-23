@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function AddRehearsal(props) {
@@ -13,6 +13,7 @@ function AddRehearsal(props) {
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
+      console.log('clicked submit button')
         e.preventDefault();
 
         const newRehearsal = {
@@ -20,9 +21,9 @@ function AddRehearsal(props) {
             time,
             genre,
             skillLevel,
-            song
+            song // it should be an array in setState
         }
-
+console.log(typeof newRehearsal.time);
         axios.post(process.env.REACT_APP_API_URL + "/rehearsals", newRehearsal)
             .then(response => {
                 console.log(response.data)
@@ -70,7 +71,7 @@ function AddRehearsal(props) {
 
           <label>
             Genre:
-            <select name="genre" onChange={(e) => setGenre(e.target.value)}>
+            <select name="genre" value={props.genre} onChange={(e) => setGenre(e.target.value)}>
               <option value="Pop">Pop</option>
               <option value="Rock">Rock</option>
               <option value="Indie">Indie</option>
@@ -82,39 +83,28 @@ function AddRehearsal(props) {
 
           <br />
 
-          {/* <br />
-          <label>
-            Skill Level:
-            <input
-              type="radio"
-              name="skillLevel"
-              value={props.skillLevel}
-              required={true}
-              onChange={(e) => setSkillLevel(e.target.value)}
-            />
-          </label> */}
-
           <label
             required={true}
+            value={props.skillLevel}
             onChange={(e) => setSkillLevel(e.target.value)}
           >
             Skill Level:
             <input
-              class="radio-buttons"
+              className="radio-buttons"
               type="radio"
               name="skillLevel"
               value="Beginner"
             />
             <label>Beginner</label>
             <input
-              class="radio-buttons"
+              className="radio-buttons"
               type="radio"
               name="skillLevel"
               value="Intermediate"
             />
             <label>Intermediate</label>
             <input
-              class="radio-buttons"
+              className="radio-buttons"
               type="radio"
               name="skillLevel"
               value="Advanced"
@@ -123,15 +113,16 @@ function AddRehearsal(props) {
           </label>
 
           <br />
-          {/* <label>
-                    Song
-                    <input
-                        type="text"
-                        name="song"
-                        value={props.song}
-                        onChange={(e) => setSong(e.target.value)}
-                    />
-                </label> */}
+
+          <label>
+            Songs:
+            <select name="song" value={song} onChange={(e) => setSong(e.target.value)}multiple>
+             {props.songs?.map((code, items) => {
+              return (
+                  <option key={items} value={code._id}>{code.title}</option>
+              )})}
+            </select>
+          </label>
 
           <br />
 
