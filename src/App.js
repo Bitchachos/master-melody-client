@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import AddSong from './components/AddSong';
 import Homepage from './pages/Homepage';
 import SongList from './pages/SongList';
+import EditSong from './components/EditSong';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Homepage />}/>
         <Route path="/songs" element={<SongList songs={songs} callbackSongList={fetchSongs}/>} />
         <Route path="/songs/create" element={<AddSong songs={songs} callbackSongList={fetchSongs}/>} />
+        <Route path="/songs/:songId/edit" element={<EditSong songs={songs} callbackSongList={fetchSongs}/>}  />
       </Routes>
     </div>
   );
