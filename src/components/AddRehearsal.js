@@ -7,7 +7,7 @@ function AddRehearsal(props) {
 
     const [ date, setDate ] = useState("")
     const [ time, setTime ] = useState("")
-    const [ genre, setGenre ] = useState("")
+    const [ genre, setGenre ] = useState("Pop")
     const [ skillLevel, setSkillLevel ] = useState("")
     const [ song, setSong ] = useState("")
 
@@ -22,8 +22,11 @@ function AddRehearsal(props) {
             time,
             genre,
             skillLevel,
-            song // it should be an array in setState
+            song: song.values // it should be an array in setState
         }
+
+        console.log(newRehearsal)
+
 console.log(typeof newRehearsal.time);
         axios.post(process.env.REACT_APP_API_URL + "/rehearsals", newRehearsal)
             .then(response => {
@@ -31,7 +34,7 @@ console.log(typeof newRehearsal.time);
 
                 props.callbackRehearsalById();
 
-                navigate("/rehearsals"); 
+                navigate("/rehearsals");
 
                 setDate("");
                 setTime("");
@@ -40,6 +43,15 @@ console.log(typeof newRehearsal.time);
                 setSong("");
             })
             .catch(e => console.log("error creating rehearsal", e));
+            
+
+    }
+
+    const handleChange = (e) => {
+      let value = Array.from(e.target.selectedOptions, option => option.value);
+      setSong({values: value});
+      console.log("thi is consologitoooo")
+      console.log("------->>", song)
 
     }
 
@@ -54,6 +66,7 @@ console.log(typeof newRehearsal.time);
               type="date"
               name="date"
               value={props.date}
+              required={true}
               onChange={(e) => setDate(e.target.value)}
             />
           </label>
@@ -64,6 +77,7 @@ console.log(typeof newRehearsal.time);
               type="time"
               name="time"
               value={props.time}
+              required={true}
               onChange={(e) => setTime(e.target.value)}
             />
           </label>
@@ -72,7 +86,7 @@ console.log(typeof newRehearsal.time);
 
           <label>
             Genre:&nbsp;&nbsp;
-            <select name="genre" value={props.genre} onChange={(e) => setGenre(e.target.value)}>
+            <select name="genre" required={true} value={props.genre} onChange={(e) => setGenre(e.target.value)}>
               <option value="Pop">Pop</option>
               <option value="Rock">Rock</option>
               <option value="Indie">Indie</option>
@@ -117,7 +131,7 @@ console.log(typeof newRehearsal.time);
 
           <label>
             Songs:&nbsp;&nbsp;
-            <select name="song" value={song} onChange={(e) => setSong(e.target.value)} size="2" multiple>
+            <select multiple={true} name="song" value={props.song} onChange={(e) => handleChange(e)}>
              {props.songs?.map((code, items) => {
               return (
                   <option key={items} value={code._id}>{code.title}</option>

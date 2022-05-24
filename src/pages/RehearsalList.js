@@ -13,11 +13,9 @@ console.log(props.rehearsals)
                     <p>What level are you at? {element.skillLevel}</p>
                     <ul>Choose your song: {element.song?.map((code, item) => {
                         return (
-                            <>
                                 <li key={item}>
                                     {code.title}
                                 </li>
-                            </>
                         )
                     })}</ul>
                     <Link to={`/rehearsals/${element._id}/edit`}>Edit</Link>

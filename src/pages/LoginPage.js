@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../components/AddSong.css"
+import {AuthContext} from "../context/auth.context"
 
-
-function RegisterPage(props) {
-
+function LoginPage(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -13,30 +12,41 @@ function RegisterPage(props) {
 
     const navigate = useNavigate();
 
-    const handleRegisterSubmit = (e) => {
+    const { storeToken, authenticateUser } = useContext(AuthContext);
+
+
+    const handleLoginSubmit = (e) => {
         e.preventDefault();
-        
+
         const requestBody = { email, password };
 
-        axios.post(`${process.env.REACT_APP_API_URL}/auth/signup`, requestBody)
+        axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, requestBody)
             .then((response) => {
-                navigate('/login');
+                // login successful
+                
+                const jwt = response.data.authToken;
+                // console.log('Login was sucessful. JWT token: ', jwt);
+                
+                storeToken(jwt);
+                authenticateUser();
+
+                navigate('/');
             })
             .catch((error) => {
-                // const errorDescription = error.response.data.message;
-                // console.log("error creating account", errorDescription)
+                // login failed
+                const errorDescription = error.response.data.message;
+                console.log("error loggin in...", errorDescription)
                 // setErrorMessage(errorDescription);
             })
     };
 
-
     return (
         <div>
-            <h1>Register</h1>
+            <h1>Log in</h1>
+{/* 
+            {errorMessage && <p className="error-message">{errorMessage}</p>} */}
 
-            {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
-
-            <form className="forms" onSubmit={handleRegisterSubmit}>
+            <form className="forms" onSubmit={handleLoginSubmit}>
                 <label>Email:</label>
                 <input
                     type="email"
@@ -56,13 +66,15 @@ function RegisterPage(props) {
                 />
                 <br/>
                 <br/>
-                <button className="button-52" type="submit">Sign Up</button>
+                <button className="button-52" type="submit">Login</button>
             </form>
 
-            <p>Already have an account?</p>
-            <Link to={"/login"}> Login</Link>
+
+            <p>Don't have an account yet?</p>
+            <Link to={"/signup"}>Sign Up</Link>
+
         </div>
     )
 }
 
-export default RegisterPage;
+export default LoginPage;
