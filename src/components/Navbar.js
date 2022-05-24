@@ -8,7 +8,7 @@ function Navbar(){
             <NavLink to="/" className="underline-animation">Home</NavLink>
             <NavLink to="/songs" className="underline-animation">Song List</NavLink>
             <NavLink to="/rehearsals" className="underline-animation">Practice Rooms</NavLink>
-            <NavLink to="#" className="underline-animation">Register</NavLink>
+            <NavLink to="/signup" className="underline-animation">Register</NavLink>
             <NavLink to="#" className="underline-animation">Login</NavLink>
         </nav>
     )
