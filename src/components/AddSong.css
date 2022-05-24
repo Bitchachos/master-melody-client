@@ -1,7 +1,7 @@
 .AddSong form {
     text-align: center;
     border: 1px solid #333;
-    background-color: rgb(248, 243, 177);
+    background-color: rgb(245 132 32);
     margin: 2rem 2rem 4rem;
     padding: 1rem;
     border-radius: 50%;
@@ -34,7 +34,7 @@
   
   .button-52:after {
     content: "";
-    background-color: #ffe54c;
+    background-color: rgb(245 132 32);
     width: 100%;
     z-index: -1;
     position: absolute;
