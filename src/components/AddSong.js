@@ -61,7 +61,7 @@ function AddSong(props){
                 </label>
 
                 <br />
-                <button type="submit">Add song</button>
+                <button className="button-52" type="submit">Create song</button>
 
             </form>
 
