@@ -1,11 +1,11 @@
-.AddSong form {
+/* .AddSong form {
     text-align: center;
     border: 1px solid #333;
     background-color: rgb(245 132 32);
     margin: 2rem 2rem 4rem;
     padding: 1rem;
     border-radius: 50%;
-}
+} */
 
 .AddSong form label {
     display: block;
@@ -16,6 +16,21 @@
     display: block;
     margin: 0 auto;
 }
+
+.forms {
+    display: block;
+    border: 2px solid rgb(245 132 32);
+    border-radius: 5px;
+    color: rgb(245 132 32);
+    padding: 1%;
+    margin-left: 20vw;
+    margin-right: 20vw;
+  }
+
+label {
+    display: block;
+    text-align: center;
+  }
 
 .button-52 {
     font-size: 16px;
@@ -30,6 +45,7 @@
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    border-radius: 3px;
   }
   
   .button-52:after {
@@ -42,6 +58,7 @@
     top: 7px;
     left: 7px;
     transition: 0.2s;
+    border-radius: 3px;
   }
   
   .button-52:hover:after {
@@ -54,4 +71,6 @@
       padding: 13px 50px 13px;
     }
   }
+
+  
   

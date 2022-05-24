@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "../components/AddSong.css"
 
 function AddRehearsal(props) {
 
@@ -46,9 +47,9 @@ console.log(typeof newRehearsal.time);
       <section className="AddRehearsal">
         <h1>Add a new rehearsal</h1>
 
-        <form onSubmit={handleSubmit}>
+        <form className="forms" onSubmit={handleSubmit}>
           <label>
-            Date:
+            Date:&nbsp;&nbsp;
             <input
               type="date"
               name="date"
@@ -58,7 +59,7 @@ console.log(typeof newRehearsal.time);
           </label>
           <br />
           <label>
-            Time:
+            Time:&nbsp;&nbsp;
             <input
               type="time"
               name="time"
@@ -70,7 +71,7 @@ console.log(typeof newRehearsal.time);
           <br />
 
           <label>
-            Genre:
+            Genre:&nbsp;&nbsp;
             <select name="genre" value={props.genre} onChange={(e) => setGenre(e.target.value)}>
               <option value="Pop">Pop</option>
               <option value="Rock">Rock</option>
@@ -88,7 +89,7 @@ console.log(typeof newRehearsal.time);
             value={props.skillLevel}
             onChange={(e) => setSkillLevel(e.target.value)}
           >
-            Skill Level:
+            Skill Level:<br />
             <input
               className="radio-buttons"
               type="radio"
@@ -115,13 +116,13 @@ console.log(typeof newRehearsal.time);
           <br />
 
           <label>
-            Songs:
-            <select name="song" value={song} onChange={(e) => setSong(e.target.value)}multiple>
+            Songs:&nbsp;&nbsp;
+            <select name="song" value={song} onChange={(e) => setSong(e.target.value)} size="2" multiple>
              {props.songs?.map((code, items) => {
               return (
                   <option key={items} value={code._id}>{code.title}</option>
               )})}
-            </select>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link to="/songs/create">Or create your own song!</Link>
           </label>
 
           <br />

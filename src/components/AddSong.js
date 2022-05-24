@@ -37,7 +37,7 @@ function AddSong(props){
         <section className="AddSong">
             <h1>Add a new song</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="forms" onSubmit={handleSubmit}>
                 <label>
                     Title
                     <input
