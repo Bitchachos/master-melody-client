@@ -9,6 +9,7 @@ import SongList from './pages/SongList';
 import EditSong from './components/EditSong';
 import RehearsalList from './pages/RehearsalList';
 import AddRehearsal from './components/AddRehearsal';
+import EditRehearsal from './components/EditRehearsal';
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
         <Route path="/songs/:songId/edit" element={<EditSong songs={songs} callbackSongList={fetchSongs}/>}  />
         <Route path="/rehearsals" element={<RehearsalList rehearsals={rehearsals} callbackRehearsals={fetchRehearsals}/>}/>
         <Route path="/rehearsals/create" element={<AddRehearsal rehearsals={rehearsals} callbackRehearsalById={fetchRehearsals} songs={songs} callbackSongList={fetchSongs}/>}/>
+        <Route path="/rehearsals/:rehearsalId/edit" element={<EditRehearsal rehearsals={rehearsals} callbackRehearsals={fetchRehearsals}/>}/>
       </Routes>
     </div>
   );

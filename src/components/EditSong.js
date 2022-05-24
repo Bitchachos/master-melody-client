@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import "../components/AddSong.css"
 
 function EditSong(props) {
 
@@ -34,7 +35,7 @@ function EditSong(props) {
         <section className="EditSong">
             <h1>Edit the song:</h1>
 
-            <form onSubmit={handleSubmit}>
+            <form className="forms" onSubmit={handleSubmit}>
                 <label>
                     Title
                     <input
@@ -58,7 +59,7 @@ function EditSong(props) {
                 </label>
 
                 <br />
-                <button type="submit">Update</button>
+                <button className="button-52" type="submit">Update</button>
 
             </form>
 
