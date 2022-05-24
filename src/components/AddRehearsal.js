@@ -125,8 +125,8 @@ console.log(typeof newRehearsal.time);
           </label>
 
           <br />
-
-          <button type="submit">Start rehearsing now!</button>
+          <br />
+          <button className="button-52" type="submit">Start rehearsing now!</button>
         </form>
       </section>
     );
