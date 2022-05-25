@@ -15,8 +15,7 @@ function Navbar(){
 
             { isLoggedIn &&
                 <>
-                    <span className="welcome">Welcome, {user.email} </span> 
-                    {/* <NavLink activeKey="/" className="underline-animation" onSelect={logOutUser}>Log Out</NavLink> */}
+                    <span className="welcome">Welcome, {user.email} </span>
                     <button className="underline-animation" onClick={logOutUser}>Log Out</button>
                 </>
             }
