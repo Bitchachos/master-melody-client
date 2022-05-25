@@ -21,8 +21,8 @@ function SongList(props){
                 <div key={element._id} className="song-summary box">
                     <p>Learn to play <u>{element.title}</u></p>
                     <p>by {element.artist}</p>
-                    <Link to={`/songs/${element._id}/edit`}>Edit</Link>
-                    <Link to="/songs" onClick={() => {deleteSong(element._id)}}>Delete</Link>
+                    <Link className="loginLink" to={`/songs/${element._id}/edit`}>Edit</Link>
+                    <Link className="loginLink" to="/songs" onClick={() => {deleteSong(element._id)}}>Delete</Link>
                 </div>
             )
         });

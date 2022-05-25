@@ -37,7 +37,7 @@ function EditSong(props) {
 
             <form className="forms" onSubmit={handleSubmit}>
                 <label>
-                    Title
+                    Title: &nbsp;&nbsp;
                     <input
                         type="text"
                         name="title"
@@ -48,7 +48,7 @@ function EditSong(props) {
                 </label>
                 <br />
                 <label>
-                    Artist
+                    Artist: &nbsp;&nbsp;
                     <input
                         type="text"
                         name="artist"

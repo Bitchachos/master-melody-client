@@ -56,6 +56,9 @@ function LoginPage(props) {
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
+                <br />
+                <br />
+
                 <label>Password:</label>
                 <input
                     type="password"
@@ -70,8 +73,8 @@ function LoginPage(props) {
             </form>
 
 
-            <p>Don't have an account yet?</p>
-            <Link to={"/signup"}>Sign Up</Link>
+            <p><b>Don't have an account yet?</b></p>
+            <Link className="loginLink" to={"/signup"}>Sign Up</Link>
 
         </div>
     )

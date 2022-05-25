@@ -46,6 +46,9 @@ function RegisterPage(props) {
                     onChange={(e) => setEmail(e.target.value)}
                 />
 
+                <br />
+                <br />
+
                 <label>Password:</label>
                 <input
                     type="password"
@@ -59,8 +62,8 @@ function RegisterPage(props) {
                 <button className="button-52" type="submit">Sign Up</button>
             </form>
 
-            <p>Already have an account?</p>
-            <Link to={"/login"}> Login</Link>
+            <p><b>Already have an account?</b></p>
+            <Link className="loginLink" to={"/login"}><b>Login</b></Link>
         </div>
     )
 }

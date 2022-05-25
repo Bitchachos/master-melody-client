@@ -22,6 +22,7 @@
     border: 2px solid rgb(245 132 32);
     border-radius: 5px;
     color: rgb(245 132 32);
+    font-weight: bold;
     padding: 1%;
     margin-left: 20vw;
     margin-right: 20vw;
@@ -48,7 +49,7 @@ label {
     border-radius: 3px;
   }
   
-  .button-52:after {
+.button-52:after {
     content: "";
     background-color: rgb(245 132 32);
     width: 100%;
@@ -61,16 +62,20 @@ label {
     border-radius: 3px;
   }
   
-  .button-52:hover:after {
+.button-52:hover:after {
     top: 0px;
     left: 0px;
   }
+
+.loginLink {
+  color: rgb(245 132 32);
+  font-weight: bold;
+}
   
-  @media (min-width: 768px) {
+@media (min-width: 768px) {
     .button-52 {
       padding: 13px 50px 13px;
     }
   }
-
   
   
