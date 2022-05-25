@@ -71,6 +71,12 @@ label {
   color: rgb(245 132 32);
   font-weight: bold;
 }
+
+.radio-label {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
   
 @media (min-width: 768px) {
     .button-52 {

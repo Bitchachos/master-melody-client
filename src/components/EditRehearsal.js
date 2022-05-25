@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import "../components/AddSong.css"
 
 function EditRehearsal(props) {
 
@@ -79,12 +80,12 @@ function EditRehearsal(props) {
 
           <br />
 
-          <label
+          <label className="radio-label"
             required={true}
             value={skillLevel}
             onChange={(e) => setSkillLevel(e.target.value)}
           >
-            Skill Level:<br />
+            Skill Level:&nbsp;&nbsp;
             <input
               className="radio-buttons"
               type="radio"
@@ -117,7 +118,7 @@ function EditRehearsal(props) {
               return (
                   <option key={items} value={code._id}>{code.title}</option>
               )})}
-            </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link to="/songs/create">Or create your own song!</Link>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link className="loginLink" to="/songs/create">Or create your own song!</Link>
           </label>
 
           <br />

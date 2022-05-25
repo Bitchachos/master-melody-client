@@ -18,7 +18,7 @@ console.log(props.rehearsals)
                                 </li>
                         )
                     })}</ul>
-                    <Link to={`/rehearsals/${element._id}/edit`}>Edit</Link>
+                    <Link className="loginLink" to={`/rehearsals/${element._id}/edit`}>Edit</Link>
                     {/* <Link to="/songs" onClick={() => {deleteSong(element._id)}}>Delete</Link> */}
                 </div>
             )

@@ -100,12 +100,12 @@ console.log(typeof newRehearsal.time);
 
           <br />
 
-          <label
+          <label className="radio-label"
             required={true}
             value={props.skillLevel}
             onChange={(e) => setSkillLevel(e.target.value)}
           >
-            Skill Level:<br />
+            Skill Level:&nbsp;&nbsp;
             <input
               className="radio-buttons"
               type="radio"
@@ -138,7 +138,7 @@ console.log(typeof newRehearsal.time);
               return (
                   <option key={items} value={code._id}>{code.title}</option>
               )})}
-            </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link to="/songs/create">Or create your own song!</Link>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link className="loginLink" to="/songs/create">Or create your own song!</Link>
           </label>
 
           <br />
