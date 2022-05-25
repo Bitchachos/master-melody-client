@@ -42,7 +42,7 @@ function AddSong(props){
             <form className="forms" onSubmit={handleSubmit}>
                 <label>
                     Title
-                    <input
+                   <input
                         type="text"
                         name="title"
                         value={props.title}

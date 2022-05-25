@@ -5,9 +5,11 @@ import "../components/AddSong.css"
 
 function SongList(props){
 
+    const storedToken = localStorage.getItem('authToken')
+
     const deleteSong = (songId) => {
 
-        axios.delete(`${process.env.REACT_APP_API_URL}/songs/${songId}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/songs/${songId}`, { headers: { Authorization: `Bearer ${storedToken}`}})
             .then(response => {
                 props.callbackSongList();
             })
