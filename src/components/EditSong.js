@@ -9,6 +9,8 @@ function EditSong(props) {
 
     const {songId} = useParams();
 
+    const storedToken = localStorage.getItem('authToken')
+
     const songDetails = props.songs?.find( song => song._id === songId);
 
     const [ title, setTitle ] = useState(songDetails?.title);
@@ -22,7 +24,7 @@ function EditSong(props) {
             artist
         }
 
-        axios.put(`${process.env.REACT_APP_API_URL}/songs/${songId}`, newSong)
+        axios.put(`${process.env.REACT_APP_API_URL}/songs/${songId}`, newSong, { headers: { Authorization: `Bearer ${storedToken}`}})
         .then(response => {
             props.callbackSongList();
             navigate("/songs");

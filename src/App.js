@@ -12,6 +12,7 @@ import AddRehearsal from './components/AddRehearsal';
 import EditRehearsal from './components/EditRehearsal';
 import RegisterPage from './pages/RegisterPage';
 import LoginPage from './pages/LoginPage';
+import IsProtected from './components/IsProtected';
 
 
 function App() {
@@ -52,11 +53,31 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />}/>
         <Route path="/songs" element={<SongList songs={songs} callbackSongList={fetchSongs}/>} />
-        <Route path="/songs/create" element={<AddSong songs={songs} callbackSongList={fetchSongs}/>} />
-        <Route path="/songs/:songId/edit" element={<EditSong songs={songs} callbackSongList={fetchSongs}/>}  />
+        <Route path="/songs/create" 
+          element={
+          <IsProtected>
+            <AddSong songs={songs} callbackSongList={fetchSongs}/>
+          </IsProtected>
+          } />
+        <Route path="/songs/:songId/edit" 
+          element={
+          <IsProtected>
+            <EditSong songs={songs} callbackSongList={fetchSongs}/>
+          </IsProtected>
+          } />
         <Route path="/rehearsals" element={<RehearsalList rehearsals={rehearsals} callbackRehearsals={fetchRehearsals}/>}/>
-        <Route path="/rehearsals/create" element={<AddRehearsal rehearsals={rehearsals} callbackRehearsalById={fetchRehearsals} songs={songs} callbackSongList={fetchSongs}/>}/>
-        <Route path="/rehearsals/:rehearsalId/edit" element={<EditRehearsal rehearsals={rehearsals} callbackRehearsals={fetchRehearsals}/>}/>
+        <Route path="/rehearsals/create" 
+          element={
+          <IsProtected>
+            <AddRehearsal rehearsals={rehearsals} callbackRehearsalById={fetchRehearsals} songs={songs} callbackSongList={fetchSongs}/>
+          </IsProtected>
+          }/>
+        <Route path="/rehearsals/:rehearsalId/edit" 
+          element={
+          <IsProtected>
+            <EditRehearsal rehearsals={rehearsals} callbackRehearsals={fetchRehearsals}/>
+          </IsProtected>
+          }/>
         <Route path="/signup" element={<RegisterPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
       </Routes>

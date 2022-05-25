@@ -6,6 +6,8 @@ function EditRehearsal(props) {
 
     const navigate = useNavigate();
 
+    const storedToken = localStorage.getItem('authToken')
+
     const {rehearsalId} = useParams();
 
     const rehearsalDetails = props.rehearsals?.find( rehearsal => rehearsal._id === rehearsalId);
@@ -27,7 +29,7 @@ function EditRehearsal(props) {
             song
         }
 
-        axios.put(`${process.env.REACT_APP_API_URL}/rehearsals/${rehearsalId}`, newRehearsal)
+        axios.put(`${process.env.REACT_APP_API_URL}/rehearsals/${rehearsalId}`, newRehearsal, { headers: { Authorization: `Bearer ${storedToken}`}})
         .then(response => {
             props.callbackRehearsals();
             navigate("/rehearsals");

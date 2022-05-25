@@ -8,6 +8,8 @@ function AddSong(props){
     const [ title, setTitle ] = useState("")
     const [ artist, setArtist ] = useState("")
 
+    const storedToken = localStorage.getItem('authToken')
+
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -18,7 +20,7 @@ function AddSong(props){
             artist,
         }
 
-        axios.post(process.env.REACT_APP_API_URL + "/songs", newSong)
+        axios.post(process.env.REACT_APP_API_URL + "/songs", newSong, { headers: { Authorization: `Bearer ${storedToken}`}})
             .then(response => {
                 console.log(response.data)
 

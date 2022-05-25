@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../components/AddSong.css"
 
@@ -12,6 +12,8 @@ function AddRehearsal(props) {
     const [ song, setSong ] = useState("")
 
     const navigate = useNavigate();
+
+    const storedToken = localStorage.getItem('authToken')
 
     const handleSubmit = (e) => {
       console.log('clicked submit button')
@@ -28,7 +30,7 @@ function AddRehearsal(props) {
         console.log(newRehearsal)
 
 console.log(typeof newRehearsal.time);
-        axios.post(process.env.REACT_APP_API_URL + "/rehearsals", newRehearsal)
+        axios.post(process.env.REACT_APP_API_URL + "/rehearsals", newRehearsal, { headers: { Authorization: `Bearer ${storedToken}`}})
             .then(response => {
                 console.log(response.data)
 
