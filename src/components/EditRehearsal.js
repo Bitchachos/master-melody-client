@@ -27,9 +27,10 @@ function EditRehearsal(props) {
             time,
             genre,
             skillLevel,
-            song
+            song: song.name
         }
 
+       // console.log('new edited rehearsal', newRehearsal)
         axios.put(`${process.env.REACT_APP_API_URL}/rehearsals/${rehearsalId}`, newRehearsal, { headers: { Authorization: `Bearer ${storedToken}`}})
         .then(response => {
             props.callbackRehearsals();
@@ -38,6 +39,11 @@ function EditRehearsal(props) {
         .catch(e => console.log("error updating rehearsal", e))
     }
 
+    const handleChange = (e) => {
+      
+      let value = Array.from(e.target.selectedOptions, option => option.value);
+      setSong({name: value});
+    }
 
     return (
         <section className="EditRehearsal">
@@ -110,13 +116,13 @@ function EditRehearsal(props) {
           </label>
 
           <br />
-
+         
           <label>
             Songs:&nbsp;&nbsp;
-            <select name="song" value={song} onChange={(e) => setSong(e.target.value)} size="2" multiple>
-             {props.songs?.map((code, items) => {
+            <select multiple={true} name="song" value={props.song} onChange={(e) => handleChange(e)}>
+            {props.songs?.map((item, code) => {
               return (
-                  <option key={items} value={code._id}>{code.title}</option>
+                  <option key={code} value={item._id}>{item.title}</option>
               )})}
             </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link className="loginLink" to="/songs/create">Or create your own song!</Link>
           </label>

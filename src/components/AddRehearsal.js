@@ -26,7 +26,7 @@ function AddRehearsal(props) {
             time,
             genre,
             skillLevel,
-            song: song.values // it should be an array in setState
+            song: song.name // it should be an array in setState
         }
 
         console.log(newRehearsal)
@@ -51,8 +51,13 @@ console.log(typeof newRehearsal.time);
     }
 
     const handleChange = (e) => {
+      //let name = e.target.name
+     // let value = Array.from(e.target.selectedOptions, option => option.value);
+      //setSong({[name]: value});
+
+
       let value = Array.from(e.target.selectedOptions, option => option.value);
-      setSong({values: value});
+      setSong({name: value});
     }
 
     return (
@@ -142,9 +147,9 @@ console.log(typeof newRehearsal.time);
           <label>
           Choose the songs you want to play:&nbsp;&nbsp;
             <select multiple={true} name="song" value={props.song} onChange={(e) => handleChange(e)}>
-             {props.songs?.map((code, items) => {
+             {props.songs?.map((item, code) => {
               return (
-                  <option key={items} value={code._id}>{code.title}</option>
+                  <option key={code} value={item._id}>{item.title}</option>
               )})}
             </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link className="loginLink" to="/songs/create">Or create your own song!</Link>
           </label>
