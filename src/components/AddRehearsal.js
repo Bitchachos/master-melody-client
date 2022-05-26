@@ -5,6 +5,7 @@ import "../components/AddSong.css"
 
 function AddRehearsal(props) {
 
+    const [ name, setName ] = useState("")
     const [ date, setDate ] = useState("")
     const [ time, setTime ] = useState("")
     const [ genre, setGenre ] = useState("Pop")
@@ -20,6 +21,7 @@ function AddRehearsal(props) {
         e.preventDefault();
 
         const newRehearsal = {
+            name,
             date,
             time,
             genre,
@@ -38,6 +40,7 @@ console.log(typeof newRehearsal.time);
 
                 navigate("/rehearsals");
 
+                setName("");
                 setDate("");
                 setTime("");
                 setGenre("");
@@ -52,9 +55,6 @@ console.log(typeof newRehearsal.time);
     const handleChange = (e) => {
       let value = Array.from(e.target.selectedOptions, option => option.value);
       setSong({values: value});
-      console.log("thi is consologitoooo")
-      console.log("------->>", song)
-
     }
 
     return (
@@ -62,6 +62,15 @@ console.log(typeof newRehearsal.time);
         <h1>Add a new rehearsal</h1>
 
         <form className="forms" onSubmit={handleSubmit}>
+          <label>
+          Name your rehearsal:&nbsp;&nbsp;
+            <input
+              type="text"
+              name="name"
+              value={props.name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </label>
           <label>
           Choose a date that suits you:&nbsp;&nbsp;
             <input
