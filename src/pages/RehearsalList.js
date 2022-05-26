@@ -20,7 +20,7 @@ function RehearsalList(props) {
             
             return (
                 <div key={element._id} className="rehearsal-summary box">
-                    <p>Date: <u>{element.date}</u></p>
+                    <p>Date: <u>{element.date.split("", 10)}</u></p>
                     <p>Time: {element.time}</p>
                     <p>Genre: {element.genre}</p>
                     <p>Skill Level: {element.skillLevel}</p>
