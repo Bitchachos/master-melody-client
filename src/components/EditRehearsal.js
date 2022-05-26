@@ -30,7 +30,6 @@ function EditRehearsal(props) {
             song: song.name
         }
 
-       // console.log('new edited rehearsal', newRehearsal)
         axios.put(`${process.env.REACT_APP_API_URL}/rehearsals/${rehearsalId}`, newRehearsal, { headers: { Authorization: `Bearer ${storedToken}`}})
         .then(response => {
             props.callbackRehearsals();

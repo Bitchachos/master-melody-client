@@ -17,7 +17,6 @@ function AddRehearsal(props) {
     const storedToken = localStorage.getItem('authToken')
 
     const handleSubmit = (e) => {
-      console.log('clicked submit button')
         e.preventDefault();
 
         const newRehearsal = {
@@ -29,9 +28,6 @@ function AddRehearsal(props) {
             song: song.name // it should be an array in setState
         }
 
-        console.log(newRehearsal)
-
-console.log(typeof newRehearsal.time);
         axios.post(process.env.REACT_APP_API_URL + "/rehearsals", newRehearsal, { headers: { Authorization: `Bearer ${storedToken}`}})
             .then(response => {
                 console.log(response.data)
