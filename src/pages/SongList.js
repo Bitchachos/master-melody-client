@@ -64,7 +64,7 @@ function SongList(props){
     }
 
     return (
-        <div>
+        <div className={"SongList"}>
 
         <section className="SongList split left">
             <h1>Pick a song you'd like to learn:</h1> <br />

@@ -12,3 +12,28 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.light {
+  background-color: rgb(239, 239, 239);
+}
+ 
+.dark {
+  background-color: #18191a;
+}
+ 
+.Navbar.light {
+  background-color: rgb(239, 239, 239);
+}
+ 
+.Navbar.dark {
+  background-color: #252526;
+  
+}
+
+.Navbar.dark .underline-animation {
+  color: rgb(239, 239, 239);
+}
+
+.Navbar.dark .logout-dark {
+  background-color: #252526;
+}
