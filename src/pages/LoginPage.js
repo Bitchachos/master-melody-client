@@ -8,7 +8,7 @@ function LoginPage(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // const [errorMessage, setErrorMessage] = useState(undefined);
+    const [errorMessage, setErrorMessage] = useState(undefined);
 
     const navigate = useNavigate();
 
@@ -34,17 +34,15 @@ function LoginPage(props) {
             })
             .catch((error) => {
                 // login failed
-                const errorDescription = error.response.data.message;
+                const errorDescription = error.response.data.myError;
                 console.log("error loggin in...", errorDescription)
-                // setErrorMessage(errorDescription);
+                setErrorMessage(errorDescription);
             })
     };
 
     return (
         <div>
             <h1>Log in</h1>
-{/* 
-            {errorMessage && <p className="error-message">{errorMessage}</p>} */}
 
             <form className="forms" onSubmit={handleLoginSubmit}>
                 <label>Email:</label>
@@ -72,6 +70,7 @@ function LoginPage(props) {
                 <button className="button-52" type="submit">Login</button>
             </form>
 
+            {errorMessage && <div className="zoom-in-zoom-out">{errorMessage}</div>}
 
             <p><b>Don't have an account yet?</b></p>
             <Link className="loginLink" to={"/signup"}>Sign Up</Link>
