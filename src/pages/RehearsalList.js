@@ -20,11 +20,11 @@ function RehearsalList(props) {
             
             return (
                 <div key={element._id} className="rehearsal-summary box">
-                    <p>Choose a date that suits you: <u>{element.date}</u></p>
-                    <p>What time works for you? {element.time}</p>
-                    <p>Favourite genre? {element.genre}</p>
-                    <p>What level are you at? {element.skillLevel}</p>
-                    <ul>Choose your song: {element.song?.map((code, item) => {
+                    <p>Date: <u>{element.date}</u></p>
+                    <p>Time: {element.time}</p>
+                    <p>Genre: {element.genre}</p>
+                    <p>Skill Level: {element.skillLevel}</p>
+                    <ul>Playlist: {element.song?.map((code, item) => {
                         return (
                                 <li key={item}>
                                     {code.title}

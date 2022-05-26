@@ -63,7 +63,7 @@ console.log(typeof newRehearsal.time);
 
         <form className="forms" onSubmit={handleSubmit}>
           <label>
-            Date:&nbsp;&nbsp;
+          Choose a date that suits you:&nbsp;&nbsp;
             <input
               type="date"
               name="date"
@@ -74,7 +74,7 @@ console.log(typeof newRehearsal.time);
           </label>
           <br />
           <label>
-            Time:&nbsp;&nbsp;
+          What time works for you?&nbsp;&nbsp;
             <input
               type="time"
               name="time"
@@ -87,7 +87,7 @@ console.log(typeof newRehearsal.time);
           <br />
 
           <label>
-            Genre:&nbsp;&nbsp;
+          Favourite genre?&nbsp;&nbsp;
             <select name="genre" required={true} value={props.genre} onChange={(e) => setGenre(e.target.value)}>
               <option value="Pop">Pop</option>
               <option value="Rock">Rock</option>
@@ -105,7 +105,7 @@ console.log(typeof newRehearsal.time);
             value={props.skillLevel}
             onChange={(e) => setSkillLevel(e.target.value)}
           >
-            Skill Level:&nbsp;&nbsp;
+            What level are you at?&nbsp;&nbsp;
             <input
               className="radio-buttons"
               type="radio"
@@ -132,7 +132,7 @@ console.log(typeof newRehearsal.time);
           <br />
 
           <label>
-            Songs:&nbsp;&nbsp;
+          Choose the songs you want to play:&nbsp;&nbsp;
             <select multiple={true} name="song" value={props.song} onChange={(e) => handleChange(e)}>
              {props.songs?.map((code, items) => {
               return (
