@@ -59,7 +59,7 @@ function AddSong(props){
                    <input
                         type="text"
                         name="title"
-                        value={props.title}
+                        value={title}
                         required={true}
                         onChange={(e) => setTitle(e.target.value)}
                     />
@@ -70,7 +70,7 @@ function AddSong(props){
                     <input
                         type="text"
                         name="artist"
-                        value={props.artist}
+                        value={artist}
                         required={true}
                         onChange={(e) => setArtist(e.target.value)}
                     />

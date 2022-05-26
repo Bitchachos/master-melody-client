@@ -75,7 +75,7 @@ function App() {
         <Route path="/rehearsals/:rehearsalId/edit" 
           element={
           <IsProtected>
-            <EditRehearsal rehearsals={rehearsals} callbackRehearsals={fetchRehearsals}/>
+            <EditRehearsal rehearsals={rehearsals} callbackRehearsals={fetchRehearsals} songs={songs} />
           </IsProtected>
           }/>
         <Route path="/signup" element={<RegisterPage/>}/>
