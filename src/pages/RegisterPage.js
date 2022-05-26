@@ -62,7 +62,7 @@ function RegisterPage(props) {
 
             {errorMessage && <div className="zoom-in-zoom-out">{errorMessage}</div>}
 
-            <p><b>Already have an account?</b></p>
+            <p className="dark-pars"><b>Already have an account?</b></p>
             <Link className="loginLink" to={"/login"}><b>Log In</b></Link>
         </div>
     )

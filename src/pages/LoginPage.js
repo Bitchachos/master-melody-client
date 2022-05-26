@@ -72,7 +72,7 @@ function LoginPage(props) {
 
             {errorMessage && <div className="zoom-in-zoom-out">{errorMessage}</div>}
 
-            <p><b>Don't have an account yet?</b></p>
+            <p className="dark-pars"><b>Don't have an account yet?</b></p>
             <Link className="loginLink" to={"/signup"}>Sign Up</Link>
 
         </div>

@@ -16,15 +16,22 @@ code {
 .light {
   background-color: rgb(239, 239, 239);
 }
+
+.light h1, h2 {
+  color: black;
+}
  
 .dark {
   background-color: #18191a;
 }
 
-.dark h1, h2, p {
+.dark h1, h2 {
   color: rgb(239, 239, 239);
 }
 
+.dark .dark-pars {
+  color: rgb(239, 239, 239)
+}
  
 .Navbar.light {
   background-color: rgb(239, 239, 239);
@@ -43,6 +50,6 @@ code {
   background-color: #252526;
 }
 
-.Navbar.dark h1 {
+/* .Navbar.dark h1 {
   color: rgb(239, 239, 239);
-}
+} */
