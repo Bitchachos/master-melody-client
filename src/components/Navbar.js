@@ -23,7 +23,7 @@ function Navbar(){
             { !isLoggedIn &&
                 <>
                     <NavLink to="/signup" className="underline-animation">Register</NavLink>
-                    <NavLink to="/login" className="underline-animation">Log in</NavLink>
+                    <NavLink to="/login" className="underline-animation">Log In</NavLink>
                 </>
             }
         </nav>
