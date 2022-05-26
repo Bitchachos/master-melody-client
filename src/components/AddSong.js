@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify'
 import "./AddSong.css";
 
 function AddSong(props){
@@ -35,6 +36,18 @@ function AddSong(props){
 
     }
 
+    const notify = () => {
+        toast.success('🦄 Wow so easy!', {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+    }
+
     return (
         <section className="AddSong">
             <h1>Add a new song</h1>
@@ -63,7 +76,7 @@ function AddSong(props){
                 </label>
 
                 <br />
-                <button className="button-52" type="submit">Create song</button>
+                <button className="button-52" type="submit" onClick={notify}>Create song</button>
 
             </form>
 

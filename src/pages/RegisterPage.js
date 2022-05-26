@@ -9,7 +9,7 @@ function RegisterPage(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    // const [errorMessage, setErrorMessage] = useState(undefined);
+    const [errorMessage, setErrorMessage] = useState(undefined);
 
     const navigate = useNavigate();
 
@@ -23,9 +23,9 @@ function RegisterPage(props) {
                 navigate('/login');
             })
             .catch((error) => {
-                // const errorDescription = error.response.data.message;
-                // console.log("error creating account", errorDescription)
-                // setErrorMessage(errorDescription);
+                const errorDescription = error.response.data.myError;
+                console.log("error creating account", errorDescription)
+                setErrorMessage(errorDescription);
             })
     };
 
@@ -33,8 +33,6 @@ function RegisterPage(props) {
     return (
         <div>
             <h1>Register</h1>
-
-            {/* {errorMessage && <p className="error-message">{errorMessage}</p>} */}
 
             <form className="forms" onSubmit={handleRegisterSubmit}>
                 <label>Email:</label>
@@ -61,6 +59,8 @@ function RegisterPage(props) {
                 <br/>
                 <button className="button-52" type="submit">Sign Up</button>
             </form>
+
+            {errorMessage && <div className="zoom-in-zoom-out">{errorMessage}</div>}
 
             <p><b>Already have an account?</b></p>
             <Link className="loginLink" to={"/login"}><b>Login</b></Link>

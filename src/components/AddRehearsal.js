@@ -48,8 +48,6 @@ console.log(typeof newRehearsal.time);
                 setSong("");
             })
             .catch(e => console.log("error creating rehearsal", e));
-            
-
     }
 
     const handleChange = (e) => {
@@ -71,6 +69,7 @@ console.log(typeof newRehearsal.time);
               onChange={(e) => setName(e.target.value)}
             />
           </label>
+          <br />
           <label>
           Choose a date that suits you:&nbsp;&nbsp;
             <input

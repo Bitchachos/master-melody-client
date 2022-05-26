@@ -77,6 +77,28 @@ label {
   flex-direction: row;
   justify-content: center;
 }
+
+
+.zoom-in-zoom-out {
+  width: 50vw;
+  margin-top: 2vh;
+  margin-left: 25vw;
+  text-align: center;
+  border: 2px solid red;
+  animation: zoom-in-zoom-out 2s ease-out;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
   
 @media (min-width: 768px) {
     .button-52 {

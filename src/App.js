@@ -56,7 +56,7 @@ function App() {
         <Route path="/songs/create" 
           element={
           <IsProtected>
-            <AddSong songs={songs} callbackSongList={fetchSongs}/>
+            <AddSong songs={songs} callbackSongList={fetchSongs} />
           </IsProtected>
           } />
         <Route path="/songs/:songId/edit" 
