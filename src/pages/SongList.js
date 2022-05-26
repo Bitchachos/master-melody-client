@@ -2,8 +2,12 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import "./SongList.css"
 import "../components/AddSong.css"
+import { useContext } from "react";
+import { AuthContext } from "../context/auth.context";
 
 function SongList(props){
+
+    const { user } = useContext(AuthContext);
 
     const storedToken = localStorage.getItem('authToken')
 
@@ -23,8 +27,12 @@ function SongList(props){
                 <div key={element._id} className="song-summary box">
                     <p>Learn to play <u>{element.title}</u></p>
                     <p>by {element.artist}</p>
+                    { element.owner === user._id &&
+                    <>
                     <Link className="loginLink" to={`/songs/${element._id}/edit`}>Edit</Link>
                     <Link className="loginLink" to="/songs" onClick={() => {deleteSong(element._id)}}>Delete</Link>
+                    </>
+                    }
                 </div>
             )
         });

@@ -5,7 +5,7 @@ import "../components/AddSong.css"
 
 function EditRehearsal(props) {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
     const storedToken = localStorage.getItem('authToken')
 

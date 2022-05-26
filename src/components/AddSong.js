@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from 'react-toastify'
+// import { useNavigate } from "react-router-dom";
 import "./AddSong.css";
+import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function AddSong(props){
 
@@ -11,14 +14,14 @@ function AddSong(props){
 
     const storedToken = localStorage.getItem('authToken')
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const newSong = {
             title,
-            artist,
+            artist
         }
 
         axios.post(process.env.REACT_APP_API_URL + "/songs", newSong, { headers: { Authorization: `Bearer ${storedToken}`}})
@@ -27,7 +30,7 @@ function AddSong(props){
 
                 props.callbackSongList();
 
-                navigate("/songs"); 
+                // navigate("/songs"); 
 
                 setTitle("");
                 setArtist("");
@@ -36,17 +39,15 @@ function AddSong(props){
 
     }
 
-    const notify = () => {
-        toast.success('🦄 Wow so easy!', {
-            position: "top-center",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-    }
+    const notify = () => toast.success('🎵 Song added successfully!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 
     return (
         <section className="AddSong">
@@ -77,6 +78,17 @@ function AddSong(props){
 
                 <br />
                 <button className="button-52" type="submit" onClick={notify}>Create song</button>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                />
 
             </form>
 
