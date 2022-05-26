@@ -32,6 +32,7 @@ function RehearsalList(props) {
                                 </li>
                         )
                     })}</ul>
+                    <button className="button-52"><a href="mailto:marija.strahinjic@hotmail.com">Contact musician</a></button>
                     <Link className="loginLink" to={`/rehearsals/${element._id}/edit`}>Edit</Link>
                     <Link className="loginLink" to="/rehearsals" onClick={() => {deleteRehearsal(element._id)}}>Finish session</Link>
                 </div>
