@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../components/AddSong.css"
+import "./LoginPage.css"
 import {AuthContext} from "../context/auth.context"
 
 function LoginPage(props) {
@@ -41,7 +42,7 @@ function LoginPage(props) {
     };
 
     return (
-        <div>
+        <div className="LoginPage">
             <h1>Log in</h1>
 
             <form className="forms" onSubmit={handleLoginSubmit}>

@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../components/AddSong.css"
+import "./LoginPage.css"
+import { ThemeContext } from "../context/theme.context";
 
 
 function RegisterPage(props) {
@@ -10,6 +12,8 @@ function RegisterPage(props) {
     const [password, setPassword] = useState("");
 
     const [errorMessage, setErrorMessage] = useState(undefined);
+
+    const { theme } = useContext(ThemeContext);
 
     const navigate = useNavigate();
 
@@ -31,7 +35,7 @@ function RegisterPage(props) {
 
 
     return (
-        <div>
+        <div className="LoginPage">
             <h1>Register</h1>
 
             <form className="forms" onSubmit={handleRegisterSubmit}>
@@ -57,7 +61,7 @@ function RegisterPage(props) {
                 />
                 <br/>
                 <br/>
-                <button className="button-52" type="submit">Sign Up</button>
+                <button className={"button-52 " + theme} type="submit">Sign Up</button>
             </form>
 
             {errorMessage && <div className="zoom-in-zoom-out">{errorMessage}</div>}

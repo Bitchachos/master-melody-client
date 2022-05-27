@@ -2,10 +2,14 @@ import axios from "axios";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
+import { ThemeContext } from "../context/theme.context";
+import "../components/AddSong.css"
 
 function RehearsalList(props) {
 
     const { user } = useContext(AuthContext);
+
+    const { theme } = useContext(ThemeContext);
 
     const storedToken = localStorage.getItem('authToken')
 
@@ -36,7 +40,7 @@ function RehearsalList(props) {
                                 </li>
                         )
                     })}</ul>
-                    <button className="button-52"><a href="mailto:marija.strahinjic@hotmail.com">Contact musician</a></button>
+                    <button className={"button-52 " + theme}><a href="mailto:marija.strahinjic@hotmail.com">Contact musician</a></button>
                     <br />
                     { element.owner === user?._id &&
                     <>
@@ -52,7 +56,7 @@ function RehearsalList(props) {
 
     return (
         <div>
-            <section className="RehearsalList SongList">
+            <section className={"RehearsalList SongList " + theme}>
             <Link to="/rehearsals/create"><button className="button-52" type="submit">Create your rehearsal</button></Link>
             <h1>Choose your practice room:</h1> <br />
             { props.rehearsals === null ? <p>Loading...</p> : renderRehearsals(props.rehearsals) }
