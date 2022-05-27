@@ -1,10 +1,12 @@
 
 .Homepage {
-  min-height: 79vh;
+  width: 100vw;
+  position:absolute;
 }
 
 .Homepage h2 {
-  color: black
+  color: black;
+  z-index: 100;
 }
 
 .dark .Homepage h2 {
@@ -16,6 +18,19 @@
     animation-name: slidein;
     margin: 10vh;
   }
+
+.Homepage .video {
+  position: fixed;
+  min-width: 100%;
+  z-index: -1;
+}
+
+/* .video {
+  border: 3px solid red;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+} */
 
   @keyframes slidein {
     from {
