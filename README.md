@@ -18,6 +18,8 @@ https://github.com/Bitchachos/master-melody-client
 - React
 - JavaScript
 - CSS
+- Toastify (for notifications)
+- React Player
 
 # Demo
 https://master-melody.netlify.app
