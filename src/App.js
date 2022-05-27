@@ -50,7 +50,7 @@ function App() {
   return (
     <div className={"App " + theme}>
       <button className="theme-btn" onClick={toggleTheme}>
-        {theme === "light" ? "💡 Dark " : "💡 Light "}
+        {theme === "light" ? "🌙 Dark " : "☀️ Light "}
       </button>
 
       <Navbar />

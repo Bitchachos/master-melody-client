@@ -113,6 +113,10 @@ font-weight: bold;
   animation: zoom-in-zoom-out 2s ease-out;
 }
 
+.dark .zoom-in-zoom-out {
+  color:rgb(239 239 239)
+}
+
 @keyframes zoom-in-zoom-out {
   0% {
     transform: scale(1, 1);
@@ -128,6 +132,17 @@ font-weight: bold;
 @media (min-width: 768px) {
     .button-52 {
       padding: 13px 50px 13px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .radio-label {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .radio-buttons {
+      margin-left: 27.5vw;
     }
   }
   
