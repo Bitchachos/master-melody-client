@@ -4,6 +4,7 @@ import axios from "axios";
 import "../components/AddSong.css"
 import "./LoginPage.css"
 import {AuthContext} from "../context/auth.context"
+import { ThemeContext } from "../context/theme.context";
 
 function LoginPage(props) {
     const [email, setEmail] = useState("");
@@ -12,6 +13,8 @@ function LoginPage(props) {
     const [errorMessage, setErrorMessage] = useState(undefined);
 
     const navigate = useNavigate();
+
+    const { theme } = useContext(ThemeContext);
 
     const { storeToken, authenticateUser } = useContext(AuthContext);
 
@@ -74,7 +77,7 @@ function LoginPage(props) {
             {errorMessage && <div className="zoom-in-zoom-out">{errorMessage}</div>}
 
             <p className="dark-pars"><b>Don't have an account yet?</b></p>
-            <Link className="loginLink" to={"/signup"}>Sign Up</Link>
+            <Link className={"loginLink " + theme} to={"/signup"}>Sign Up</Link>
 
         </div>
     )

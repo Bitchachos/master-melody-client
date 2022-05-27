@@ -95,6 +95,11 @@ color: rgb(245 132 32);
 font-weight: bold;
 }
 
+.dark .loginLink {
+  color: rgb(245 132 32);
+  font-weight: bold;
+  }
+
 .zoom-in-zoom-out {
   width: 50vw;
   margin-top: 2vh;
