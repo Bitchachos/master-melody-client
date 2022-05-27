@@ -1,4 +1,8 @@
 
+.Homepage {
+  min-height: 100vh;
+}
+
 .actually-learn {
     animation-duration: 3s;
     animation-name: slidein;

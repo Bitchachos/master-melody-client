@@ -47,10 +47,6 @@ function AddRehearsal(props) {
     }
 
     const handleChange = (e) => {
-      //let name = e.target.name
-     // let value = Array.from(e.target.selectedOptions, option => option.value);
-      //setSong({[name]: value});
-
 
       let value = Array.from(e.target.selectedOptions, option => option.value);
       setSong({name: value});
@@ -147,7 +143,9 @@ function AddRehearsal(props) {
               return (
                   <option key={code} value={item._id}>{item.title}</option>
               )})}
-            </select>&nbsp;&nbsp;&nbsp;&nbsp;<Link className="loginLink" to="/songs/create">Or create your own song!</Link>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;
+            <Link className="loginLink" to="/songs/create"><u>Or create your own song!</u></Link>
+            <p><i>(hold down the CTRL key to select multiple songs)</i></p>
           </label>
 
           <br />
