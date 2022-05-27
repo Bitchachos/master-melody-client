@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import "../components/AddSong.css"
+import "../components/AddSong.css";
+import "./EditSong.css";
 
 function EditRehearsal(props) {
 
@@ -45,7 +46,7 @@ function EditRehearsal(props) {
     }
 
     return (
-        <section className="EditRehearsal">
+        <section className="EditSong">
             <h1>Edit your rehearsal:</h1>
 
             <form className="forms" onSubmit={handleSubmit}>

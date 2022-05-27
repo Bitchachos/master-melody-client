@@ -3,6 +3,14 @@
   min-height: 79vh;
 }
 
+.Homepage h2 {
+  color: black
+}
+
+.dark .Homepage h2 {
+  color: rgb(239, 239, 239)
+}
+
 .actually-learn {
     animation-duration: 3s;
     animation-name: slidein;

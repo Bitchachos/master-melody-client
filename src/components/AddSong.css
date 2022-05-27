@@ -1,3 +1,7 @@
+.AddSong {
+  min-height: 79vh;
+}
+
 .AddSong form label {
     display: block;
     margin: 1rem;
